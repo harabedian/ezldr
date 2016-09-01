@@ -1,0 +1,27 @@
+Release Notes
+ezldr v0.1.0
+August 31,2016
+==============
+
+Ezldr is a command line utility for quickly and easily loading data 
+into an Oracle database.  The intention in creating ezldr was to make loading
+data from a delimted file into Oracle as simple as possible.   
+
+It is not required for there to be an already existing table to load data into.
+Ezldr will create the table for you based on the definition in the data file
+being loaded into the database.  While ezldr will create the table if
+necessary, you may also pre-create the target table. 
+
+
+Using ezldr
+-----------
+Loading data can be as simple as providing database connection information
+and the name of the source data file to load.  For example,
+
+	ezdlr myusername/mypwd data.csv
+
+This will result in a table named "EZLDR_DATA" being created in the
+"myusername" schema.  
+
+
+

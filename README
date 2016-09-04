@@ -15,13 +15,16 @@ necessary, you may also pre-create the target table.
 
 Using ezldr
 -----------
+
+Quick Start
+-----------
 Loading data can be as simple as providing database connection information
 and the name of the source data file to load.  For example,
 
 	ezdlr myusername/mypwd data.csv
 
 This will result in a table named "EZLDR_DATA" being created in the
-"myusername" schema.  
+"myusername" schema with columns named "COL0", "COL1", etc.
 
 
 

@@ -1,7 +1,7 @@
-Release Notes
-ezldr v0.1.0
-August 31,2016
-==============
+                             Release Notes
+                              ezldr v0.2.0
+                           September 11,2016
+                           =================
 
 Ezldr is a command line utility for quickly and easily loading data 
 into an Oracle database.  The intention in creating ezldr was to make loading

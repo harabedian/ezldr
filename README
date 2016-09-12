@@ -13,18 +13,150 @@ being loaded into the database.  While ezldr will create the table if
 necessary, you may also pre-create the target table. 
 
 
-Using ezldr
------------
-
 Quick Start
------------
+===========
+Be sure you have an the Oracle client (11g or 12c) installed on the machine 
+from which you are running ezldr.  Also, be sure to have your ORACLE_HOME
+environment variable set to the base directory containing your Oracle 
+client installation.
+
 Loading data can be as simple as providing database connection information
 and the name of the source data file to load.  For example,
 
-	ezdlr myusername/mypwd data.csv
+	ezdlr myusername/mypwd@machine:1521/servicename data.csv
 
 This will result in a table named "EZLDR_DATA" being created in the
 "myusername" schema with columns named "COL0", "COL1", etc.
+
+You can specify the column names by putting them in the first line in your 
+delimited data file and then running ezldr with a "-1" option.  For example,
+your data file may look something like:
+
+EMP_ID,NAME,BIRTHDATE
+1,Greg Harabedian,12/1/1965
+2,John Doe,6/6/1990
+
+You would then load this into a table named "MY_TABLE" with column names
+of "EMP_ID", "NAME", and "BIRTHDATE" by running ezldr as follows:
+
+	ezldr -d -1 -t MY_TABLE <uname>/<pwd>@machine:<port>/<service> data.csv
+
+The "-d" ensures that the target table is dropped first and is re-created based
+on the data file content.
+
+
+The Details
+===========
+
+Dropping the Target Table (-d / --drop)
+---------------------------------------
+To drop the target table before the load takes place, you can pass the "-d" 
+or "--drop" option on the command line.  This will ensure the target table
+is defined based on the source data since the target table is created 
+automatically if it does not already exist.  For example,
+
+   ezldr -d ...
+
+will drop the default target table (EZLDR_DATA).  
+
+   ezldr -d -t MY_TABLE ...
+
+will drop the table named "MY_TABLE"
+
+
+Log File (-o / --output)
+------------------------
+The ouput from ezldr is logged by default to a file named "ezldr.log".  You
+can specify the name of the log file by passing the "-o" or "--output" option
+with a filename.  For example
+
+   ezldr -o mylogfile.log ...
+or
+   ezldr --output=mylogfile.log
+
+
+Progress Indicator (-p / --progress)
+------------------------------------
+Progress of the load can be output to the screen by passing the "-p" 
+or "--progress" option along with an integer (N).  The integer specifies that 
+an asterisk is output everytime N records are loaded into the database.  
+For example:
+
+   ezldr -p 1000 ...
+or
+   ezldr --progress=1000 ...
+
+specifies that an asterisk (*) will be output every 1000 records loaded.
+
+
+Reject Filename (-r / --rejects)
+--------------------------------
+Specifies the name of the file to contain records that cannot be loaded into
+the database for some reason.  By default, the file containing rejected records
+is named:  ezldr.rejects
+
+   ezldr -r my_rejects.dat ...
+or
+   ezldr --rejects=my_rejects.dat ...
+
+
+Delimiter (-s / --delim)
+------------------------
+Specifies the delimiter used to separate fields in the data file to be loaded.
+The default delimter is a comma (,).  However, any string may be used as a 
+delimiter.  For example,
+
+   ezldr -s | ...
+or
+   ezldr --delim=|
+
+if you wanted the pipe symbol to be used as the delimiter.
+
+
+
+Target Table (-t / --target)
+----------------------------
+Specifies the name of the table into which data will be loaded.  If this option
+is not provided, the default table name into which data is loaded is EZLDR_DATA.
+For example,
+
+   ezldr -t MY_TABLE ...
+or
+   ezldr --target=MY_TABLE ...
+
+
+Trimming whitespace (-w / --whitespace)
+---------------------------------------
+Specifies that leading and trailing whitespace in the source data file are 
+to be removed prior to loading the data.  For example,
+
+   ezldr -w ...
+or
+   ezldr --whitespace ...
+
+
+Including a Header Row (-1 / --header)
+--------------------------------------
+You can specify that the source data file contains a header row containing
+field names using the "-1" (the one digit, not a lowercase "l").  Furthermore, 
+if the target table does not exist or is dropped using the "-d" option, 
+the header field names will be used as the names of the columns in the 
+created target table.  For example, if your data file looks like:
+
+
+NAME,ID,BIRTHDATE
+Greg,1,10/01/1965
+
+and the ezldr command run is:
+
+   ezldr -1 -t MYTABLE ...
+
+The resulting table would be named "MYTABLE" and would be defined as follows:
+
+NAME		VARCHAR2(4)
+ID 		NUMBER
+BIRTHDATE	DATE
+
 
 
 

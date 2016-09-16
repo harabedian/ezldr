@@ -1,0 +1,49 @@
+Freeware End User License Agreement (EULA)
+
+This EULA applies to all no charge software from Greg Harabedian. 
+Specifically: ezldr.
+
+FREEWARE LICENSE
+
+Greg Harabedian grants you a limited non-exclusive license to use FREEWARE 
+downloadable for personal, educational, charity, and commercial use, and 
+donations are entirely optional.
+
+If you are using the SOFTWARE free of charge under the terms of this Agreement, 
+you are not entitled to support although we will respond to support requests 
+if they relate to any SOFTWARE that is not performing it's task correctly 
+(bugs etc).
+
+This Freeware is licensed to you in accordance with the terms and conditions 
+of this Agreement. You represent and warrant that you will not violate any of 
+the requirements of this Agreement and further represent and warrant that:
+
+- You will not, and will not permit others to:
+
+(i) reverse engineer, decompile, disassemble, derive the source code of, 
+modify, or create derivative works from our Freeware, or
+
+(ii) copy, distribute, publicly display, or publicly perform content contained 
+in this Freeware other than as expressly authorized by this Agreement.
+
+- You will not use this Freeware to engage in or allow others to engage in any 
+illegal activity.
+
+- You will not engage in using this Freeware that will interfere with or damage 
+the operation of the services of any third parties by overburdening/disabling 
+network resources through automated queries, excessive usage or similar conduct.
+
+- You will not sell this Freeware or charge others for use of it (either for 
+profit or merely to recover your media and distribution costs) whether as a 
+stand-alone product, or as part of a compilation or anthology, without explicit 
+prior written permission.
+
+- You will not use this Freeware to engage in any activity that will violate 
+the rights of third parties, including, without limitation, through the use, 
+public display, public performance, reproduction, distribution, or modification
+of communications or materials that infringe copyrights, trademarks, publicity 
+rights, privacy rights, other proprietary rights, or rights against defamation 
+of third parties.
+
+- You may not claim any sponsorship by, endorsement by, or affiliation with 
+Greg Harabedian.

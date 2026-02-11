@@ -5,7 +5,7 @@
 
 Ezldr is a command line utility for quickly and easily loading data 
 into an Oracle database.  The intention in creating ezldr was to make loading
-data from a delimted file into Oracle as simple as possible.   
+data from a delimited file into Oracle as simple as possible.   
 
 It is not required for there to be an already existing table to load data into.
 Ezldr will create the table for you based on the definition in the data file
